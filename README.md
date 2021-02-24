@@ -1,4 +1,4 @@
-# currencyExchange
+# Currency Exchange
 Simple web app to show currency exchange rates via API
 
 type EUR to see USD to EUR conversion
