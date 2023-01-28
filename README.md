@@ -6,6 +6,6 @@ Functionalities
 1. Input suggestion by search bar (v1.0)
 2. voice input using mic (v1.1)
 3. Convert more than one currencies at a time w.r.t parent currency (v1.2)
-4. Save recent conversion history - last 24 hrs (v1.3)
+4. Save recent conversion history - last 24 hrs (v1.3) WARNING: It will use local storage to      save the data. 
 
 
