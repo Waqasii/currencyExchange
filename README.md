@@ -1,5 +1,10 @@
 # Currency Exchange
-Simple web app to show currency exchange rates via API
+Simple WebApp to see exchange rates of different currencies
 
-type EUR to see USD to EUR conversion
-type ay_currency_code to see USD to ay_currency_code conversion
+Functionalities
+
+1. Input suggestion by search bar (v1.0)
+2. voice input using mic (v1.1)
+3. Convert more than one currencies at a time w.r.t parent currency (v1.2)
+
+
