@@ -1,24 +1,87 @@
-document.addEventListener('DOMContentLoaded',function(){
+// window.onload = runFunctionsOnLoad;
 
-    document.querySelector('form').onsubmit= () =>{
-        fetch('https://api.exchangeratesapi.io/latest?base=USD')
-        .then(response => response.json())
-        .then(data => {
-            const currency=document.querySelector('#currency').value.toUpperCase();
-            const rate=data.rates[currency];
-            if(rate!=undefined){
-                document.querySelector('#result').innerHTML=`1 USD is equal to ${rate.toFixed(2)} ${currency}`;
-            }
-            else{
-                document.querySelector('#result').innerHTML='Invalid Currency';
-            }
-    })
-    .catch(error =>{
-        console.log('Error:',error)
+function get_currencies() {
 
-    });
-    return false;
+    console.log('we are in js file')
+
+    var myHeaders = new Headers();
+    myHeaders.append("apikey", "Mps2Uft1uEwEEsEsYFx61uNosm9tvjHG");
+
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow',
+        headers: myHeaders
+    };
+
+    return fetch("https://api.apilayer.com/fixer/symbols", requestOptions)
+        .then(response => {
+            console.log('In first then');
+            return response.json()
+        })
+        .then(result => {
+            if (result.symbols) {
+                return result.symbols
+            }
+
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+
 
 }
 
-});
+
+function addOptionsToSelect(selectElements) {
+
+
+    get_currencies().then(result => {
+        if (result) {
+            console.log('Data recieved so now in creating');
+            let currencies = result;
+            // console.log(currencies);
+            for (const selected_element of selectElements) {
+                Object.keys(currencies || {}).forEach(element => {
+
+                    const optionElement = document.createElement("option");
+                    optionElement.value = element;
+                    optionElement.textContent = currencies[element];
+                    selected_element.appendChild(optionElement);
+                });
+
+            }
+
+        }
+        else {
+            console.log('Error in data loading!!!');
+        }
+
+    });
+
+    console.log('We are in creating element now');
+
+
+
+}
+
+function runFunctionsOnLoad() {
+    // add option to select of base currency
+    const base_selectElement = document.querySelector(".base-currency-select");
+    const quote_selectElement = document.querySelector(".quote-currency-select");
+    addOptionsToSelect([base_selectElement, quote_selectElement])
+
+
+
+}
+
+
+function submitExchange() {
+
+
+}
+
+// API KEY
+// Mps2Uft1uEwEEsEsYFx61uNosm9tvjHG
+
+// Documentation
+// https://exchangeratesapi.io/documentation/
