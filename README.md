@@ -3,7 +3,7 @@ Simple WebApp to see exchange rates of different currencies
 
 Functionalities
 
-1. Simple input with excahnge button(v1.0)
+1. Simple input with exchange button(v1.0)
 2. Input suggestion by search bar (v1.01)
 3. Delete excahgne button and automatically convert when 
    enter input (real time conversion) (v1.02)
