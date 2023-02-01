@@ -27,41 +27,41 @@
         <div class="row mt-6 justify-content-center">
 
             <!-- Base Currency Section -->
-            <div id="input" class="border col ">
+            <div id="input" class=" col ">
                 <h3>Base Currency</h3>
                 <div class="base-container">
-                    <select class="half-width base-currency-select">
+                    <select class="half-width base-currency-select" id="base_currency_option">
 
                     </select>
-                    <input type="text" class="half-width" />
+                    <input type="text" class="half-width" id="base_currency" />
                 </div>
             </div>
 
             <!-- Swap Currency exchange option -->
-            <div class="col border d-flex align-items-center justify-content-center">
+            <div class="col  d-flex align-items-center justify-content-center">
                 <div class="">
-                    <button class="">
+                    <button onclick="swapCurrency()" class="">
                         <i class="fas fa-exchange-alt"></i>
                     </button>
                 </div>
             </div>
 
             <!-- output Section -->
-            <div class="col border">
+            <div class="col">
                 <div id="result">
                     <h3>Quote Currency</h3>
                     <div class="base-container">
-                        <select class="half-width quote-currency-select">
+                        <select class="half-width quote-currency-select" id="quote_currency_option">
 
                         </select>
-                        <input type="text" class="half-width" />
+                        <input type="text" class="half-width" id="quote_currency" disabled />
                     </div>
                 </div>
             </div>
 
             <!-- Submit -->
             <div class="row mt-4 d-flex align-items-center">
-                <button type="submit">Exchange</button>
+                <button onclick="submitExchange()">Exchange</button>
             </div>
 
 
